@@ -7,19 +7,20 @@ services:
       - "6379:6379"
 
   backend:
-    build: 
-      context: ./backend
-      dockerfile: Dockerfile
+    image: abhilash774/queue-manager-backend
+    container_name: queue-manager-backend
     platform: linux/amd64
     ports:
       - "4315:4315"
     depends_on:
       - redis
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
 
   frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
+    image: abhilash774/queue-manager-frontend
+    container_name: queue-manager-frontend
     ports:
       - "3000:80"
     depends_on:

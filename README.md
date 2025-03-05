@@ -102,7 +102,7 @@ The frontend will run on `http://localhost:3000`.
 ### **🔹 Running with Docker Compose**
 Run the following command to start everything using Docker:
 ```bash
-docker-compose up --build
+docker-compose -f docker-compose.remote.yml up -d
 ```
 This will:
 ✅ Start Redis on port **6379**
